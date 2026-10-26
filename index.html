@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎃 O Código Amaldiçoado - Halloween</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- TELA DE REGISTO / LOGIN -->
+  <div id="screen-register" class="screen active">
+    <div class="card">
+      <h1>🎃 O CÓDIGO AMALDIÇOADO 🎃</h1>
+      <p class="subtitle">Desafio de Halloween da Escola</p>
+      
+      <form id="form-register">
+        <div class="input-group">
+          <label for="username">Teu Nome / Nickname:</label>
+          <input type="text" id="username" required placeholder="Ex: Ana Silva" maxlength="20">
+        </div>
+        
+        <div class="input-group">
+          <label for="userclass">Tua Turma / Ano:</label>
+          <input type="text" id="userclass" required placeholder="Ex: 9º A, 11º C" maxlength="10">
+        </div>
+
+        <button type="submit" class="btn btn-primary">ENTRAR NO DESAFIO 🚀</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- TELA DE SELECÇÃO DE NÍVEL -->
+  <div id="screen-levels" class="screen">
+    <div class="card">
+      <h2 id="welcome-user">Olá, Detetive!</h2>
+      <p id="user-stats-summary">Pontuação Máxima: 0 pts</p>
+
+      <h3>Escolhe o Nível</h3>
+      <div id="levels-container" class="levels-grid"></div>
+
+      <div class="actions">
+        <button id="btn-show-ranking" class="btn btn-secondary">🏆 Ver Ranking da Escola</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TELA DE JOGO -->
+  <div id="screen-game" class="screen">
+    <header class="game-header">
+      <button id="btn-back-menu" class="btn-small">🏠 Menu</button>
+      <h2 id="game-title">Nível 1 - Regra</h2>
+      <div id="game-timer" class="badge-timer">⏳ 180s</div>
+    </header>
+
+    <main class="game-body">
+      <!-- PAINEL 1: PISTAS -->
+      <section class="panel">
+        <h3>📜 Pistas Disponíveis</h3>
+        <ul id="list-examples" class="examples-list"></ul>
+        <button id="btn-hint" class="btn btn-small btn-warning">💡 Dica (-15 pts)</button>
+      </section>
+
+      <!-- PAINEL 2: TESTES E ADIVINHAÇÃO -->
+      <section class="panel">
+        <h3>🧪 Testar Palavra</h3>
+        <div class="input-inline">
+          <input type="text" id="input-word" placeholder="Escreve uma palavra...">
+          <button id="btn-test-word" class="btn btn-primary">Testar</button>
+        </div>
+        <div id="test-result" class="result-box">Testa uma palavra para ver o resultado...</div>
+
+        <hr>
+
+        <h3>🔮 Qual é a Regra Secreta?</h3>
+        <div class="input-inline">
+          <input type="text" id="input-rule" placeholder="Descreve a regra...">
+          <button id="btn-guess-rule" class="btn btn-accent">Revelar</button>
+        </div>
+      </section>
+
+      <!-- PAINEL 3: PLACAR E HISTÓRICO -->
+      <section class="panel">
+        <div class="status-bar">
+          <span>🏆 Pontos: <strong id="val-points">0</strong></span>
+          <span>♥ Vidas: <strong id="val-lives">5</strong></span>
+        </div>
+        <div id="boss-shield" class="boss-box" style="display: none;">
+          🛡️ Escudo do Chefe: <span id="val-boss-shield">0/2</span>
+        </div>
+
+        <h4>📖 Histórico de Testes</h4>
+        <ul id="list-history" class="history-list"></ul>
+      </section>
+    </main>
+  </div>
+
+  <!-- MODAL DE VITÓRIA / PRÓXIMO NÍVEL -->
+  <div id="modal-victory" class="modal">
+    <div class="modal-content card">
+      <h2 id="victory-title">🎃 MISTÉRIO RESOLVIDO! 🎃</h2>
+      <p id="victory-message"></p>
+      <button id="btn-next-action" class="btn btn-primary">▶️ PRÓXIMO DESAFIO</button>
+    </div>
+  </div>
+
+  <!-- MODAL DE RANKING DA ESCOLA -->
+  <div id="modal-ranking" class="modal">
+    <div class="modal-content card">
+      <h2>🏆 RANKING DA ESCOLA 🏆</h2>
+      <ol id="ranking-list" class="ranking-list"></ol>
+      <button id="btn-close-ranking" class="btn btn-secondary">Fechar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
